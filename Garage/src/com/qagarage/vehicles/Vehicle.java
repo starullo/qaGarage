@@ -8,6 +8,7 @@ public abstract class Vehicle implements VehicleDriving  {
 	protected String color;
 	protected double tankLevel;
 	protected double tankCapacity;
+	protected double miles;
 
 	public Vehicle() {
 		this.make = "???";
@@ -16,15 +17,18 @@ public abstract class Vehicle implements VehicleDriving  {
 		this.color = "???";
 		this.tankLevel = 0.0;
 		this.tankCapacity = 0.0;
+		this.miles = 0.0;
 	}
 	
-	public Vehicle(String make, String model, int year, String color, double tankLevel, double tankCapacity) {
+	public Vehicle(String make, String model, int year, String color, double tankLevel, double tankCapacity, double miles) {
 		this.make = make;
 		this.model = model;
 		this.year = year;
 		this.color = color;
 		this.tankLevel = tankLevel;
 		this.tankCapacity = tankCapacity;
+		this.miles = miles;
+		
 	}
 	
 	public String make() {
@@ -51,6 +55,10 @@ public abstract class Vehicle implements VehicleDriving  {
 		return this.tankCapacity;
 	}
 	
+	public double miles() {
+		return this.miles;
+	}
+	
 	public void setMake(String newMake) {
 		this.make = newMake;
 	}
@@ -73,6 +81,10 @@ public abstract class Vehicle implements VehicleDriving  {
 	
 	public void setTankCapacity(double newTc) {
 		this.tankCapacity = newTc;
+	}
+	
+	public void setMiles(double newMiles) {
+		this.miles = newMiles;
 	}
 
 }
