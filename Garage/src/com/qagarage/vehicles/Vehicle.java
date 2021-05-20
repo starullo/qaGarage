@@ -1,0 +1,78 @@
+package com.qagarage.vehicles;
+
+public abstract class Vehicle implements VehicleDriving  {
+	
+	protected String make;
+	protected String model;
+	protected int year;
+	protected String color;
+	protected double tankLevel;
+	protected double tankCapacity;
+
+	public Vehicle() {
+		this.make = "???";
+		this.model = "???";
+		this.year = 0;
+		this.color = "???";
+		this.tankLevel = 0.0;
+		this.tankCapacity = 0.0;
+	}
+	
+	public Vehicle(String make, String model, int year, String color, double tankLevel, double tankCapacity) {
+		this.make = make;
+		this.model = model;
+		this.year = year;
+		this.color = color;
+		this.tankLevel = tankLevel;
+		this.tankCapacity = tankCapacity;
+	}
+	
+	public String make() {
+		return this.make;
+	}
+	
+	public String model() {
+		return this.model;
+	}
+	
+	public int year() {
+		return this.year;
+	}
+	
+	public String color() {
+		return this.color;
+	}
+	
+	public double tankLevel() {
+		return this.tankLevel;
+	}
+	
+	public double tankCapacity() {
+		return this.tankCapacity;
+	}
+	
+	public void setMake(String newMake) {
+		this.make = newMake;
+	}
+	
+	public void setModel(String newModel) {
+		this.model = newModel;
+	}
+	
+	public void setYear(int newYear) {
+		this.year = newYear;
+	}
+	
+	public void setColor(String newColor) {
+		this.color = newColor;
+	}
+	
+	public void setTankLevel(double newTl) {
+		this.tankLevel = newTl;
+	}
+	
+	public void setTankCapacity(double newTc) {
+		this.tankCapacity = newTc;
+	}
+
+}
