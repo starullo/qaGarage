@@ -96,6 +96,21 @@ public abstract class Vehicle implements VehicleDriving  {
 	public void setMpg(double newMpg) {
 		this.mpg = newMpg;
 	}
+	
+	@Override
+	public String toString() {
+		String type;
+		if (this instanceof Car) {
+			type = "Car";
+		} else if (this instanceof Motorcycle) {
+			type = "Motorcycle";
+		} else if (this instanceof Scooter) {
+			type = "Scooter";
+		} else {
+			type = "???";
+		}
+		return "Type of Vehicle: " + type + "\nMake: " + this.make + "\nModel: " + this.model + "\nYear: " + this.year + "\nColor: " + this.color + "\nMiles Per Gallon: " + this.mpg + "\nOdometer: " + this.miles + " miles";
+	}
 
 	
 }

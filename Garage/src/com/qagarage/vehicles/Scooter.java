@@ -145,11 +145,6 @@ public class Scooter extends Vehicle {
 		}
 		
 	}
-	
-	@Override
-	public String toString() {
-		return "Type of Vehicle: Scooter\n" + "Make: " + this.make + "\nModel: " + this.model + "\nYear: " + this.year + "\nColor: " + this.color + "\nMiles Per Gallon: " + this.mpg + "\nOdometer: " + this.miles + " miles";
-	}
 
 
 }
