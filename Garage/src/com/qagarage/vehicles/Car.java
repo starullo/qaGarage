@@ -51,7 +51,7 @@ public class Car extends Vehicle {
 	@Override
 	public void drive(double numOfMiles) {
 		double gasNeeded = numOfMiles / this.mpg;
-		double longestDistance = this.tankLevel * this.mpg;
+		double longestDistance = (this.tankCapacity - this.tankLevel) * this.mpg;
 		if (gasNeeded > this.tankLevel) {
 			System.out.println("Not enough gas in tank. Either put gas in tank or take a shorter trip. \n The longest distance you can travel is " + longestDistance + " miles");
 		} else {
@@ -59,6 +59,12 @@ public class Car extends Vehicle {
 			this.miles += numOfMiles;
 			System.out.println("You drove " + numOfMiles + " miles\n" + "Gas used: " + gasNeeded + " gallons\n" + "Gas remaining: " + this.tankLevel + " gallons\n" + "Odometer: " + this.miles);
 		}
+		
+	}
+
+	@Override
+	public void drive() {
+		System.out.println("Please enter total amount of miles you wish to drive as type double");
 		
 	}
 

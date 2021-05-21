@@ -20,7 +20,7 @@ public class Motorcycle extends Vehicle {
 	@Override
 	public void drive(double numOfMiles) {
 		double gasNeeded = numOfMiles / this.mpg;
-		double longestDistance = this.tankLevel * this.mpg;
+		double longestDistance = (this.tankCapacity - this.tankLevel) * this.mpg;
 		if (gasNeeded > this.tankLevel) {
 			System.out.println("You don't have enough gas in the tank to make that trip. The longest distance you can ride is " + longestDistance);
 		} else {
@@ -36,6 +36,12 @@ public class Motorcycle extends Vehicle {
 			System.out.println(" ");
 			System.out.println("You just rode " + numOfMiles + " miles\n gas used: " + gasNeeded + " gallons\n gas left: " + this.tankLevel + " gallons\nodometer: " + this.miles + " miles");
 		}
+		
+	}
+
+	@Override
+	public void drive() {
+		System.out.println("Please enter total amount of miles you wish to drive as type double");
 		
 	}
 
@@ -61,7 +67,8 @@ public class Motorcycle extends Vehicle {
 			this.tankLevel += amountToFill;
 			System.out.println(amountToFill + " gallons added to tank\nfuel tank status: " + this.tankLevel + "/" + this.tankCapacity + " gallons");
 		}
-		
 	}
+
+	
 
 }
