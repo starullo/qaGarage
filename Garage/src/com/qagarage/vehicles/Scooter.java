@@ -101,7 +101,7 @@ public class Scooter extends Vehicle {
 	@Override
 	public void drive(double numOfMiles) {
 		double gasNeeded = numOfMiles / this.mpg;
-		double furthest = (this.tankCapacity - this.tankLevel) * this.mpg;
+		double furthest = this.tankLevel * this.mpg;
 		String side = this.kickstandLocation == 'l' ? "left" : this.kickstandLocation == 'L' ? "left" : "right";
 		if (gasNeeded > this.tankLevel) {
 			System.out.println("NOT ENOUGH GAS IN TANK TO COMPLETE TRIP!\nThe furthest you can travel is " + furthest + " miles");
@@ -109,11 +109,11 @@ public class Scooter extends Vehicle {
 			if (this.hasBasket) {
 				System.out.println("Put belongings in your basket");
 			}
-			this.miles -= numOfMiles;
+			this.miles += numOfMiles;
 			this.tankLevel -= gasNeeded;
 			System.out.println("Starting ride...");
 			System.out.println("Ride ended. Your kickstand is on the " + side + " side");
-			System.out.println("Distance traveled: " + numOfMiles + " miles\nGas used: " + gasNeeded + " gallons\nGas Left In Tank: " + this.tankLevel + " miles\nOdometer: " + this.miles + " miles");
+			System.out.println("Distance traveled: " + numOfMiles + " miles\nGas used: " + gasNeeded + " gallons\nGas Left In Tank: " + this.tankLevel + " gallons\nOdometer: " + this.miles + " miles");
 		}
 		
 	}
@@ -124,22 +124,13 @@ public class Scooter extends Vehicle {
 		
 	}
 
-	@Override
-	public void fillTank(boolean fillTillFull) {
-		if (this.tankLevel == this.tankCapacity) {
-			System.out.println("Tank already full");
-		} else {
-			this.tankLevel = this.tankCapacity;
-			System.out.println("Tank filled");
-		}
-		
-	}
 
 	@Override
 	public void fillTank(double amountToFill) {
-		if (amountToFill + this.tankLevel > this.tankCapacity) {
+		if ((amountToFill + this.tankLevel) > this.tankCapacity) {
 			System.out.println("NOT ENOUGH ROOM IN THE TANK FOR THAT MUCH GAS\nThe largest amount you can put in right now is " + (this.tankCapacity - this.tankLevel));
 		} else {
+			System.out.println("**curTank: " + this.tankLevel + "/" + this.tankCapacity);
 			this.tankLevel += amountToFill;
 			System.out.println("You put " + amountToFill + " gallons of gas in the tank.\nCurrent Fuel Level: " + this.tankLevel + "/" + this.tankCapacity + " gallons");
 		}

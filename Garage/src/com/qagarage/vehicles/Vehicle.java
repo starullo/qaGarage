@@ -97,6 +97,21 @@ public abstract class Vehicle implements VehicleDriving  {
 		this.mpg = newMpg;
 	}
 	
+	public void drive() {
+		System.out.println("Please enter total amount of miles you wish to drive as type double");
+		
+	}
+
+	public void fillTank() {
+		if (this.tankLevel == this.tankCapacity) {
+			System.out.println("Tank already full");
+		} else {
+				System.out.println("Pumped " + (this.tankCapacity - this.tankLevel) + " gallons of gas to fill tank at " + this.tankCapacity + " gallons");
+				this.tankLevel = this.tankCapacity;
+		}
+		
+	}
+	
 	@Override
 	public String toString() {
 		String type;
