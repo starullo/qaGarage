@@ -81,5 +81,10 @@ public class Car extends Vehicle {
 			System.out.println("Can't put in that much gas, the tank would overfill\n The most you can put in the tank right now is " + (this.tankCapacity - this.tankLevel) + " gallons");
 		}
 	}
+	
+	@Override
+	public String toString() {
+		return "Type of Vehicle: Car\n" + "Make: " + this.make + "\nModel: " + this.model + "\nYear: " + this.year + "\nColor: " + this.color + "\nMiles Per Gallon: " + this.mpg + "\nOdometer: " + this.miles + " miles";
+	}
 
 }

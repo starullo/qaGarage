@@ -97,4 +97,5 @@ public abstract class Vehicle implements VehicleDriving  {
 		this.mpg = newMpg;
 	}
 
+	
 }

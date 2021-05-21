@@ -3,6 +3,9 @@ package com.qagarage;
 import java.util.ArrayList;
 
 import com.qagarage.vehicles.Vehicle;
+import com.qagarage.vehicles.Car;
+import com.qagarage.vehicles.Scooter;
+import com.qagarage.vehicles.Motorcycle;
 
 public class Garage {
 	
@@ -33,6 +36,25 @@ public class Garage {
 	
 	public void addVehicle(Vehicle v) {
 		this.vehicles.add(v);
+	}
+	
+	@Override
+	public String toString() {
+		String output = "";
+		for (Vehicle v : vehicles) {
+			String type;
+			if (v instanceof Scooter) {
+				type = "Scooter";
+			} else if (v instanceof Motorcycle) {
+				type = "Motorcycle";
+			} else if (v instanceof Car){
+				type = "Car";
+			} else {
+				type = "???";
+			}
+			output += "\n************\n" + "Type of Vehicle: " + type + "\nMake: " + v.make() + "\nModel: " + v.model() + "\nYear: " + v.year() + "\nColor: " + v.color() + "\nMiles Per Gallon: " + v.mpg() + "\nOdometer: " + v.miles();
+		}
+		return output;
 	}
 
 }
