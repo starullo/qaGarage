@@ -1,7 +1,11 @@
 package com.qagarage.vehicles;
 
+import java.util.ArrayList;
+
 public abstract class Vehicle implements VehicleDriving  {
 	
+	protected double id;
+	protected ArrayList<String> issues;
 	protected String make;
 	protected String model;
 	protected int year;
@@ -12,6 +16,8 @@ public abstract class Vehicle implements VehicleDriving  {
 	protected double mpg;
 
 	public Vehicle() {
+		this.id = (double) (Math.random() * 1000);
+		this.issues = new ArrayList<String> ();
 		this.make = "???";
 		this.model = "???";
 		this.year = 0;
@@ -23,6 +29,8 @@ public abstract class Vehicle implements VehicleDriving  {
 	}
 	
 	public Vehicle(String make, String model, String color, int year, double tankLevel, double tankCapacity, double miles, double mpg) {
+		this.id = (double) (Math.random() * 1000);
+		this.issues = new ArrayList<String> ();
 		this.make = make;
 		this.model = model;
 		this.year = year;
@@ -31,6 +39,22 @@ public abstract class Vehicle implements VehicleDriving  {
 		this.tankCapacity = tankCapacity;
 		this.miles = miles;
 		this.mpg = mpg;
+	}
+	
+	public double id() {
+		return this.id;
+	}
+	
+	public ArrayList<String> issues() {
+		return this.issues;
+	}
+	
+	public String issue(int idx) {
+		return issues.get(idx);
+	}
+	
+	public int issuesLength() {
+		return this.issues.size();
 	}
 	
 	public String make() {
@@ -63,6 +87,18 @@ public abstract class Vehicle implements VehicleDriving  {
 	
 	public double mpg() {
 		return this.mpg;
+	}
+	
+	public void setId(double newId) {
+		this.id = newId;
+	}
+	
+	public void addIssue(String newIssue, String newIssueLevel) {
+		this.issues.add( newIssue + " " + newIssueLevel);
+	}
+	
+	public void removeIssues() {
+		this.issues.clear();
 	}
 	
 	public void setMake(String newMake) {
